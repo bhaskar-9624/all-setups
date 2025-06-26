@@ -12,6 +12,6 @@ mv kubectl /usr/local/bin/kubectl
 
 aws s3api create-bucket --bucket flm-s3-kops-s3.k8s.local --region us-east-1
 aws s3api put-bucket-versioning --bucket flm-s3-kops-s3.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3:/flm-s3-kops-s3.k8s.local
+export KOPS_STATE_STORE=s3://flm-s3-kops-s3.k8s.local
 kops create cluster --name bhass.k8s.local --zones us-east-1a,us-east-1b --master-count=1 --master-size t2.large --master-volume-size=30 --node-count=3 --node-size t2.medium --node-volume-size=20
 kops update cluster --name bhass.k8s.local --yes --admin
